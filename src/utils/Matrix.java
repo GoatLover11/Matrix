@@ -17,6 +17,20 @@ public class Matrix {
     }
 
     /*
+        print matrix
+     */
+    public void print(){
+
+        System.out.println();
+        for (int i = 0; i < this.getNLenght(); i++) {
+            System.out.println();
+            for (int j = 0; j < this.getMLenght(); j++) {
+                System.out.print(this.get(i, j) + ", ");
+            }
+        }
+    }
+
+    /*
         N dimenzio hosz viszaadja
      */
     public int getNLenght(){
@@ -53,7 +67,7 @@ public class Matrix {
         A + B => C (Mátrix)
      */
     public static Matrix Sum (Matrix A, Matrix B){
-        Matrix C = new Matrix();
+        Matrix C = new Matrix(A.getNLenght(), A.getMLenght());
 
         for (int i = 0; i < A.getNLenght(); i++) {
             for (int j = 0; j < A.getMLenght(); j++) {
@@ -68,7 +82,7 @@ public class Matrix {
         A - B => C (Mátrix)
      */
     public static Matrix Sub (Matrix A, Matrix B){
-        Matrix C = new Matrix();
+        Matrix C = new Matrix(A.getNLenght(), A.getMLenght());
 
         for (int i = 0; i < A.getNLenght(); i++) {
             for (int j = 0; j < A.getMLenght(); j++) {
@@ -83,7 +97,7 @@ public class Matrix {
         A * B => C (Mátrix)
      */
     public static Matrix Multiplication (Matrix A, Matrix B){
-        Matrix C = new Matrix();
+        Matrix C = new Matrix(A.getNLenght(), A.getMLenght());
 
         for (int i = 0; i < A.getNLenght(); i++) {
             for (int j = 0; j < A.getMLenght(); j++) {
@@ -98,7 +112,7 @@ public class Matrix {
         A : B => C (Mátrix)
      */
     public static Matrix Division (Matrix A, Matrix B){
-        Matrix C = new Matrix();
+        Matrix C = new Matrix(A.getNLenght(), A.getMLenght());
 
         //to do
 
@@ -109,7 +123,7 @@ public class Matrix {
         A' => C (Mátrix)
      */
     public static Matrix Determ (Matrix A){
-        Matrix C = new Matrix();
+        Matrix C = new Matrix(A.getNLenght(), A.getMLenght());
 
         for (int i = 0; i < A.getNLenght(); i++) {
             for (int j = 0; j < A.getMLenght(); j++) {
