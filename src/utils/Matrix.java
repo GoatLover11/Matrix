@@ -132,7 +132,7 @@ public class Matrix {
     /*
         A' => C (Mátrix)
      */
-    public static Matrix Determ (Matrix A){
+    public static Matrix Trans (Matrix A){
         Matrix C = new Matrix(A.getNLenght(), A.getMLenght());
 
         for (int i = 0; i < A.getNLenght(); i++) {
@@ -178,12 +178,20 @@ public class Matrix {
     }
 
     /*
-        this matrix determ
+        this matrix trans
      */
-    public void determ (Matrix B){
+    public void trans (Matrix B){
         for (int i = 0; i < this.getNLenght(); i++) {
             for (int j = 0; j < this.getMLenght(); j++) {
                 this.add(this.get(i, j), j, i);
+            }
+        }
+    }
+
+    public void fillRan(){
+        for (int i = 0; i < this.getNLenght(); i++) {
+            for (int j = 0; j < this.getMLenght(); j++) {
+                this.add(Math.random(), i, j);
             }
         }
     }
