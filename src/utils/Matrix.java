@@ -8,6 +8,16 @@ public class Matrix {
 
     }
 
+    public Matrix (Matrix A){
+        this.Mat = new double[A.getNLenght()][A.getMLenght()];
+
+        for (int i = 0; i < A.getNLenght(); i++) {
+            for (int j = 0; j < A.getMLenght(); j++) {
+                this.add(A.get(i, j), i, j);
+            }
+        }
+    }
+
     public Matrix (int n){
 
     }
@@ -132,6 +142,50 @@ public class Matrix {
         }
 
         return C;
+    }
+
+    /*
+        this matrix add B matrix
+     */
+    public void sum (Matrix B){
+        for (int i = 0; i < this.getNLenght(); i++) {
+            for (int j = 0; j < this.getMLenght(); j++) {
+                this.add((this.get(i, j) + B.get(i, j)), i, j);
+            }
+        }
+    }
+
+    /*
+        this matrix sub B matrix
+     */
+    public void sub (Matrix B){
+        for (int i = 0; i < this.getNLenght(); i++) {
+            for (int j = 0; j < this.getMLenght(); j++) {
+                this.add((this.get(i, j) - B.get(i, j)), i, j);
+            }
+        }
+    }
+
+    /*
+        this matrix * B matrix
+     */
+    public void multi (Matrix B){
+        for (int i = 0; i < this.getNLenght(); i++) {
+            for (int j = 0; j < this.getMLenght(); j++) {
+                this.add((this.get(i, j) * B.get(j, i)), i, j);
+            }
+        }
+    }
+
+    /*
+        this matrix determ
+     */
+    public void determ (Matrix B){
+        for (int i = 0; i < this.getNLenght(); i++) {
+            for (int j = 0; j < this.getMLenght(); j++) {
+                this.add(this.get(i, j), j, i);
+            }
+        }
     }
 
 }
